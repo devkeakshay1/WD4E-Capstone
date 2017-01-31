@@ -6,8 +6,7 @@ bootstrap templete
 from
 [Start Bootstrap](http://startbootstrap.com/)
 
-## [Start Bootstrap](http://startbootstrap.com/) -
-[Freelancer](http://startbootstrap.com/template-overviews/freelancer/)
+## [Start Bootstrap](http://startbootstrap.com/) - [Freelancer](http://startbootstrap.com/template-overviews/freelancer/)
 
 [Freelancer](http://startbootstrap.com/template-overviews/freelancer/) is a one
 page freelancer portfolio theme for [Bootstrap](http://getbootstrap.com/)
