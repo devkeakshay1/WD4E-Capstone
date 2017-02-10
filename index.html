@@ -272,9 +272,9 @@
                             <img src="img/devil.png" class="img-responsive img-centered" alt="a devil">
                             <p class="articles">
                                 In this section, you will be able to see some algorithms with terrible performance.
-                                This will give you a taste of poorly designed sorting algorithms.  I will use
-                                <strong>stooge sort</strong> and the well-known <strong>bogo sort</strong> as an
-                                example.
+                                This will give you a taste of poorly (or sometime carefully) designed sorting
+                                algorithms.  I will use <strong>stooge sort</strong> and the well-known
+                                <strong>bogo sort</strong> as an example.
                             </p>
                             <hr>
                             <h3>Stooge Sort</h3>
@@ -282,7 +282,23 @@
                             <hr>
                             <h3>Bogo Sort</h3>
                             <hr class="star-primary">
-                            <pre class="prettyprint lang-python">
+                            <p class="articles">
+                                Bogo sort is a sorting algorithm which the complexity is solely depends on
+                                <strong>LUCK</strong>.  The algorithm it self is easy, it tries to mimic the physical
+                                sorting a deck of card by repeatedly throwing the whole deck in the air, pick them
+                                up and check if they are sorted.<br />
+                                <br />
+                                The <code>random</code> module of <code>python</code> has built-in function for
+                                shuffling a list.  So the code for bogo sort can be easily implemented.<br />
+                                <br />
+                                The best case complexity of bogo sort is $\mathcal{O}(n)$.  This is trivial because
+                                it is possible to shuffle a list once and it's then sorted.  The worst case complexity,
+                                unfortunately, is $\infty$, because you can always shuffle the list and get unsorted result.
+                                And according to
+                                <a href="https://en.wikipedia.org/wiki/Bogosort">Wikipedia</a>
+                                the average time complexity of bogo sort is $\mathcal{O}((n+1)!)$.
+                            </p>
+                            <pre class="prettyprint">
                                 from random import shuffle
                                 def isSorted(data):
                                 &nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(data) - 1):
@@ -309,6 +325,17 @@
                                 hitting the ^c.
                             </p>
                             <hr>
+                            <hr class="star-primary">
+                            <h3>Worst Sort</h3>
+                            <p class="articles">
+                                Of course there is one more thing!<br />
+                                <br />
+                                This is a sorting algorithm that guaranteed to complete, but can be slower than
+                                arbitrarily functions.  If you are really into math, or having an insomnia, please
+                                feel free to read the original research paper.  Don't have too much fun! <br />
+                                <br />
+                                Research paper: <a href="http://arxiv.org/abs/1406.1077">How inefficient can a sort algorithm be?</a>
+                            </p>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
