@@ -503,3 +503,11 @@ fieldset[disabled] .btn-success.active {
   opacity: 0;
   display: none;
 }
+pre {
+  text-align: left;
+  white-space: pre-line;
+}
+
+p.articles {
+  text-align: left;
+}
