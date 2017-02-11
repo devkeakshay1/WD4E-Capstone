@@ -270,19 +270,54 @@
                             <h2>Proceed with Caution!</h2>
                             <hr class="star-primary">
                             <img src="img/devil.png" class="img-responsive img-centered" alt="a devil">
-                            <p class="articles">
-                                In this section, you will be able to see some algorithms with terrible performance.
-                                This will give you a taste of poorly (or sometime carefully) designed sorting
-                                algorithms.  I will use <strong>stooge sort</strong> and the well-known
-                                <strong>bogo sort</strong> as an example.
+                            <p class="leftaligned">
+                                In this section, I am trying to give you a taste of poorly (or sometime carefully)
+                                designed sorting algorithms with terrible performance.  I will use
+                                <strong>stooge sort</strong> and the well-known <strong>bogo sort</strong> as an example.
                             </p>
                             <hr>
                             <h3>Stooge Sort</h3>
                             <hr class="star-primary">
+                            <p class="leftaligned">
+                                Stooge sort is usually used as an example of poorly designed sorting algorithm.
+                                The algorithm itself is simple and but fairly inefficient.  The time complexity
+                                of stooge sort is
+                                $$\mathcal{O}(n^{\frac{\log{3}}{\log{1.5}}})\approx\mathcal{O}(n^{2.71})$$
+                                which is worse than bubble sort, selection sort and insertion sort.<br />
+                                <br />
+                                The algorithm can be described relative easily:
+                            </p>
+                            <ul class="leftaligned">
+                                <li><p>Swap the first and last elements if the last one is smaller</p></li>
+                                <li><p>If the length if list is greater or equal to 3, then:</p></li>
+                                <ul>
+                                    <li><p>Stooge sort the first two thirds of the list</p></li>
+                                    <li><p>Stooge sort the last two thirds of the list</p></li>
+                                    <li><p>Stooge sort the first two thirds of the list again</p></li>
+                                </ul>
+                            </ul>
+                            <p class="leftaligned">
+                                The python implementation of stooge sort is:
+                            </p>
+                            <pre class="prettyprint">
+                                def stoogeSort(data, start=0, end=None):
+                                &nbsp;&nbsp;&nbsp;&nbsp;if data is None or data == []:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return []
+                                &nbsp;&nbsp;&nbsp;&nbsp;if end is None:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end = len(data) - 1
+                                &nbsp;&nbsp;&nbsp;&nbsp;if data[end] < data[start]:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[end], data[start] = data[start], data[end]
+                                &nbsp;&nbsp;&nbsp;&nbsp;if (end - start + 1) > 2:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;step = (end - start + 1) // 3
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stoogeSort(data, start, end - step)
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stoogeSort(data, start + step, end)
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stoogeSort(data, start, end - step)
+                                &nbsp;&nbsp;&nbsp;&nbsp;return data
+                            </pre>
                             <hr>
                             <h3>Bogo Sort</h3>
                             <hr class="star-primary">
-                            <p class="articles">
+                            <p class="leftaligned">
                                 Bogo sort is a sorting algorithm which the complexity is solely depends on
                                 <strong>LUCK</strong>.  The algorithm it self is easy, it tries to mimic the physical
                                 sorting a deck of card by repeatedly throwing the whole deck in the air, pick them
@@ -296,7 +331,9 @@
                                 unfortunately, is $\infty$, because you can always shuffle the list and get unsorted result.
                                 And according to
                                 <a href="https://en.wikipedia.org/wiki/Bogosort">Wikipedia</a>
-                                the average time complexity of bogo sort is $\mathcal{O}((n+1)!)$.
+                                the average time complexity of bogo sort is $\mathcal{O}((n+1)!)$.<br />
+                                <br />
+                                The python implementation of bogo sort is:
                             </p>
                             <pre class="prettyprint">
                                 from random import shuffle
@@ -310,7 +347,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shuffle(data)
                                 &nbsp;&nbsp;&nbsp;&nbsp;return data
                             </pre>
-                            <p class="articles">
+                            <p class="leftaligned">
                                 To show how quickly the time complexity of bogo sort grows, I tried to bogo sort lists
                                 with different lengths 1000 times and the average time consumption for each sort are:
                             </p>
@@ -319,15 +356,15 @@
                                 8 elements takes 1.94e-01 sec.
                                 10 elements takes 2.06e+01 sec.
                             </pre>
-                            <p class="articles">
+                            <p class="leftaligned">
                                 The program was running a linux box with quad-core i7 processor, bogo sort on lists with
                                 more than 10 elements for 100 times was not able to finish in 5 hours so I ended up
                                 hitting the ^c.
                             </p>
                             <hr>
-                            <hr class="star-primary">
                             <h3>Worst Sort</h3>
-                            <p class="articles">
+                            <hr class="star-primary">
+                            <p class="leftaligned">
                                 Of course there is one more thing!<br />
                                 <br />
                                 This is a sorting algorithm that guaranteed to complete, but can be slower than
