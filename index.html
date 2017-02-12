@@ -201,11 +201,59 @@
                                 <strong>bubble sort</strong>.
                             </p>
                             <hr>
-                            <h3>Bubble Sort</h3>
-                            <hr class="star-primary">
-                            <hr>
                             <h3>Insertion Sort</h3>
                             <hr class="star-primary">
+                            <p class="leftaligned">
+                                Insertion sort is one of the most fundamental sorting algorithm.  It works like sorting
+                                a hand of card: pick the next card and find the right location to insert it.
+                                Note in insertion sort, the whole list may always be changing, because new data
+                                may always be inserted somewhere and push part of data after.<br />
+                                <br />
+                                The python implementation of insertion sort is:
+                            </p>
+                            <pre class="prettyprint">
+                                def insertionSort(data):
+                                &nbsp;&nbsp;&nbsp;&nbsp;if data is None or data == []:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return []
+                                &nbsp;&nbsp;&nbsp;&nbsp;for i in range(1, len(data)):
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currdata = data[i]
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j = i - 1
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while j >= 0 and data[j] > currdata:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[j + 1] = data[j]
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j -= 1
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[j + 1] = currdata
+                                &nbsp;&nbsp;&nbsp;&nbsp;return data
+                            </pre>
+                            <hr>
+                            <h3>Selection Sort</h3>
+                            <hr class="star-primary">
+                            <pre class="prettyprint">
+                                def selectionSort(data):
+                                &nbsp;&nbsp;&nbsp;&nbsp;if data is None or data == []:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return []
+                                &nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(data)):
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minidx, mindata = i, data[i]
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j in range(i, len(data)):
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data[j] < mindata:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minidx = j
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mindata = data[j]
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if minidx >= 0:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[i], data[minidx] = data[minidx], data[i]
+                                &nbsp;&nbsp;&nbsp;&nbsp;return data
+                            </pre>
+                            <hr>
+                            <h3>Bubble Sort</h3>
+                            <hr class="star-primary">
+                            <pre class="prettyprint">
+                                def bubbleSort(data):
+                                &nbsp;&nbsp;&nbsp;&nbsp;if data is None or data ==[]:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return []
+                                &nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(data)):
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j in range(1, len(data)):
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data[j - 1] > data[j]:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[j - 1], data[j] = data[j], data[j - 1]
+                                &nbsp;&nbsp;&nbsp;&nbsp;return data
+                            </pre>
                             <hr>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
