@@ -228,6 +228,13 @@
                             <hr>
                             <h3>Selection Sort</h3>
                             <hr class="star-primary">
+                            <p class="leftaligned">
+                                Selection sort is similar to insertion sort.  At each iteration, it select the minimum
+                                element from the unsorted part of the list and put it in the end of sorted part of the
+                                list.<br />
+                                <br />
+                                The python implementation of selection sort is:
+                            </p>
                             <pre class="prettyprint">
                                 def selectionSort(data):
                                 &nbsp;&nbsp;&nbsp;&nbsp;if data is None or data == []:
@@ -245,6 +252,15 @@
                             <hr>
                             <h3>Bubble Sort</h3>
                             <hr class="star-primary">
+                            <p class="leftaligned">
+                                Bubble sort is also $\mathcal{O}(n^2)$ sorting algorithm.
+                                The algorithm keeps comparing the neighbored elements,
+                                if they are out of order then swap them.  Although it has same time complexity as
+                                previous two algorithms, bubble sort is usually much slower
+                                than the previous two algorithms because it only moves elements one step at a time.<br />
+                                <br />
+                                The python implementation of bubble sort is:
+                            </p>
                             <pre class="prettyprint">
                                 def bubbleSort(data):
                                 &nbsp;&nbsp;&nbsp;&nbsp;if data is None or data ==[]:
@@ -276,14 +292,18 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Quick but Tricky</h2>
+                            <h2>Fast but Tricky</h2>
                             <hr class="star-primary">
                             <img src="img/spaceship.png" class="img-responsive img-centered" alt="a spaceship">
                             <p align="left">
                                 This section includes sorting algorithms sit in the domain of $\mathcal{O}(n\log{}n)$.
                                 These algorithms usually require some brain muscle to be fully understood, but since
                                 they have very good performance, the time investment will be worth it especially when
-                                you are planning to sort gigantic data sets.
+                                you are planning to sort gigantic data sets.<br />
+                                <br />
+                                Sorting algorithms achieves $\mathcal{O}(n\log{}n)$ complexity usually adopted the
+                                divide and conquer technique.  And this has been proved to be the best a comparing-based
+                                sorting algorithm can do.
                             </p>
                             <p align="left">
                                 The algorithms introduced in this sections are <strong>merge sort</strong> and
@@ -292,6 +312,12 @@
                             <hr>
                             <h3>Merge Sort</h3>
                             <hr class="star-primary">
+                            <p class="leftaligned">
+                                Merge sort divide the input list into multiple sublists with only 1 element, and
+                                recursively merge them until all sublists are merged into one.  <br />
+                                <br />
+                                The python implementation of merge sort is:
+                            </p>
                             <pre class="prettyprint">
                                 def mergeSort(data):
                                 &nbsp;&nbsp;&nbsp;&nbsp;if data is None or data == []:
