@@ -206,8 +206,9 @@
                             <p class="leftaligned">
                                 Insertion sort is one of the most fundamental sorting algorithm.  It works like sorting
                                 a hand of card: pick the next card and find the right location to insert it.
-                                Note in insertion sort, the whole list may always be changing, because new data
-                                may always be inserted somewhere and push part of data after.<br />
+                                One advantage of insertion sort is, when the list is "almost sorted", the instrtion
+                                sort can be very effective.  This property can be applied by other sorting algorithms
+                                like <a href="https://en.wikipedia.org/wiki/Shellsort">Shellsort (Wikipedia page)</a><br />
                                 <br />
                                 The python implementation of insertion sort is:
                             </p>
@@ -291,9 +292,59 @@
                             <hr>
                             <h3>Merge Sort</h3>
                             <hr class="star-primary">
+                            <pre class="prettyprint">
+                                def mergeSort(data):
+                                &nbsp;&nbsp;&nbsp;&nbsp;if data is None or data == []:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return []
+                                &nbsp;&nbsp;&nbsp;&nbsp;if len(data) == 1:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return data
+                                &nbsp;&nbsp;&nbsp;&nbsp;mid = len(data) // 2
+                                &nbsp;&nbsp;&nbsp;&nbsp;a = mergeSort(data[:mid])
+                                &nbsp;&nbsp;&nbsp;&nbsp;b = mergeSort(data[mid:])
+                                &nbsp;&nbsp;&nbsp;&nbsp;return merge(a, b)
+
+                                def merge(a, b):
+                                &nbsp;&nbsp;&nbsp;&nbsp;soln = []
+                                &nbsp;&nbsp;&nbsp;&nbsp;i = 0
+                                &nbsp;&nbsp;&nbsp;&nbsp;j = 0
+                                &nbsp;&nbsp;&nbsp;&nbsp;while i < len(a) and j < len(b):
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if a[i] <= b[j]:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;soln.append(a[i])
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 1
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;soln.append(b[j])
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j += 1
+                                &nbsp;&nbsp;&nbsp;&nbsp;if i < len(a):
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return soln + a[i:]
+                                &nbsp;&nbsp;&nbsp;&nbsp;else:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return soln + b[j:]
+                            </pre>
                             <hr>
                             <h3>Quick Sort</h3>
                             <hr class="star-primary">
+                            <pre class="prettyprint">
+                                def quickSort(data, start = 0, end = None):
+                                &nbsp;&nbsp;&nbsp;&nbsp;if data is None or data == []:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return []
+                                &nbsp;&nbsp;&nbsp;&nbsp;if end is None:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end = len(data) - 1
+                                &nbsp;&nbsp;&nbsp;&nbsp;if start < end:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pivotIdx = partition(data, start, end)
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSort(data, start, pivotIdx - 1)
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSort(data, pivotIdx + 1, end)
+                                &nbsp;&nbsp;&nbsp;&nbsp;return data
+
+                                def partition(data, start, end):
+                                &nbsp;&nbsp;&nbsp;&nbsp;pivot = data[start]
+                                &nbsp;&nbsp;&nbsp;&nbsp;i, j = start, start + 1
+                                &nbsp;&nbsp;&nbsp;&nbsp;while j <= end:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data[j] <= pivot:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[i + 1], data[j] = data[j], data[i + 1]
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 1
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j += 1
+                                &nbsp;&nbsp;&nbsp;&nbsp;data[start], data[i] = data[i], data[start]
+                                &nbsp;&nbsp;&nbsp;&nbsp;return i
+                            </pre>
                             <hr>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
