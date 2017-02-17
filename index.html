@@ -190,13 +190,13 @@
                             <h2>Slow but Straightforward</h2>
                             <hr class="star-primary">
                             <img src="img/bicycle.png" class="img-responsive img-centered" alt="a bicycle">
-                            <p align="left">
+                            <p class="leftaligned">
                                 This section includes sorting algorithms sit in the domain of $\mathcal{O}(n^2)$.
                                 They are usually easy-understanding and have acceptable performance on small data sets.
                                 But when dealing with large data sets, the $\mathcal{O}(n^2)$ algorithms are usually
                                 not desirable.
                             </p>
-                            <p align="left">
+                            <p class="leftaligned">
                                 The algorithms introduced in this sections are <strong>insertion sort</strong> and
                                 <strong>bubble sort</strong>.
                             </p>
@@ -219,7 +219,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;for i in range(1, len(data)):
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;currdata = data[i]
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j = i - 1
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while j >= 0 and data[j] > currdata:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while j &gt;= 0 and data[j] &gt; currdata:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[j + 1] = data[j]
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j -= 1
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[j + 1] = currdata
@@ -242,10 +242,10 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(data)):
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minidx, mindata = i, data[i]
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j in range(i, len(data)):
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data[j] < mindata:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data[j] &lt; mindata:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;minidx = j
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mindata = data[j]
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if minidx >= 0:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if minidx &gt;= 0:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[i], data[minidx] = data[minidx], data[i]
                                 &nbsp;&nbsp;&nbsp;&nbsp;return data
                             </pre>
@@ -267,7 +267,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return []
                                 &nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(data)):
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j in range(1, len(data)):
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data[j - 1] > data[j]:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data[j - 1] &gt; data[j]:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[j - 1], data[j] = data[j], data[j - 1]
                                 &nbsp;&nbsp;&nbsp;&nbsp;return data
                             </pre>
@@ -295,17 +295,17 @@
                             <h2>Fast but Tricky</h2>
                             <hr class="star-primary">
                             <img src="img/spaceship.png" class="img-responsive img-centered" alt="a spaceship">
-                            <p align="left">
+                            <p class="leftaligned">
                                 This section includes sorting algorithms sit in the domain of $\mathcal{O}(n\log{}n)$.
                                 These algorithms usually require some brain muscle to be fully understood, but since
                                 they have very good performance, the time investment will be worth it especially when
                                 you are planning to sort gigantic data sets.<br />
                                 <br />
                                 Sorting algorithms achieves $\mathcal{O}(n\log{}n)$ complexity usually adopted the
-                                divide and conquer technique.  And this has been proved to be the best a comparing-based
-                                sorting algorithm can do.
+                                <strong>divide and conquer</strong> technique.  And this has been proved to be the
+                                best a comparing-based sorting algorithm can do.
                             </p>
-                            <p align="left">
+                            <p class="leftaligned">
                                 The algorithms introduced in this sections are <strong>merge sort</strong> and
                                 <strong>quick sort</strong>.
                             </p>
@@ -313,8 +313,10 @@
                             <h3>Merge Sort</h3>
                             <hr class="star-primary">
                             <p class="leftaligned">
-                                Merge sort divide the input list into multiple sublists with only 1 element, and
-                                recursively merge them until all sublists are merged into one.  <br />
+                                Merge sort divide the input list into sublists and merge them.  If the sublist
+                                has length of 1, then the sort is complete, if the sublist has more than 1 elements,
+                                then merge sort the left sublist and merge sort the right sublist and merge them
+                                recursively.  And the whole list is then sorted.<br />
                                 <br />
                                 The python implementation of merge sort is:
                             </p>
@@ -333,14 +335,14 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;soln = []
                                 &nbsp;&nbsp;&nbsp;&nbsp;i = 0
                                 &nbsp;&nbsp;&nbsp;&nbsp;j = 0
-                                &nbsp;&nbsp;&nbsp;&nbsp;while i < len(a) and j < len(b):
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if a[i] <= b[j]:
+                                &nbsp;&nbsp;&nbsp;&nbsp;while i &lt; len(a) and j &lt; len(b):
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if a[i] &lt;= b[j]:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;soln.append(a[i])
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 1
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;soln.append(b[j])
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j += 1
-                                &nbsp;&nbsp;&nbsp;&nbsp;if i < len(a):
+                                &nbsp;&nbsp;&nbsp;&nbsp;if i &lt; len(a):
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return soln + a[i:]
                                 &nbsp;&nbsp;&nbsp;&nbsp;else:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return soln + b[j:]
@@ -354,7 +356,7 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return []
                                 &nbsp;&nbsp;&nbsp;&nbsp;if end is None:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end = len(data) - 1
-                                &nbsp;&nbsp;&nbsp;&nbsp;if start < end:
+                                &nbsp;&nbsp;&nbsp;&nbsp;if start &lt; end:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pivotIdx = partition(data, start, end)
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSort(data, start, pivotIdx - 1)
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quickSort(data, pivotIdx + 1, end)
@@ -363,8 +365,8 @@
                                 def partition(data, start, end):
                                 &nbsp;&nbsp;&nbsp;&nbsp;pivot = data[start]
                                 &nbsp;&nbsp;&nbsp;&nbsp;i, j = start, start + 1
-                                &nbsp;&nbsp;&nbsp;&nbsp;while j <= end:
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data[j] <= pivot:
+                                &nbsp;&nbsp;&nbsp;&nbsp;while j &lt;= end:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data[j] &lt;= pivot:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[i + 1], data[j] = data[j], data[i + 1]
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i += 1
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;j += 1
@@ -415,11 +417,13 @@
                             <ul class="leftaligned">
                                 <li><p>Swap the first and last elements if the last one is smaller</p></li>
                                 <li><p>If the length if list is greater or equal to 3, then:</p></li>
-                                <ul>
-                                    <li><p>Stooge sort the first two thirds of the list</p></li>
-                                    <li><p>Stooge sort the last two thirds of the list</p></li>
-                                    <li><p>Stooge sort the first two thirds of the list again</p></li>
-                                </ul>
+                                <li>
+                                    <ul>
+                                        <li><p>Stooge sort the first two thirds of the list</p></li>
+                                        <li><p>Stooge sort the last two thirds of the list</p></li>
+                                        <li><p>Stooge sort the first two thirds of the list again</p></li>
+                                    </ul>
+                                </li>
                             </ul>
                             <p class="leftaligned">
                                 The python implementation of stooge sort is:
@@ -430,9 +434,9 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return []
                                 &nbsp;&nbsp;&nbsp;&nbsp;if end is None:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;end = len(data) - 1
-                                &nbsp;&nbsp;&nbsp;&nbsp;if data[end] < data[start]:
+                                &nbsp;&nbsp;&nbsp;&nbsp;if data[end] &lt; data[start]:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data[end], data[start] = data[start], data[end]
-                                &nbsp;&nbsp;&nbsp;&nbsp;if (end - start + 1) > 2:
+                                &nbsp;&nbsp;&nbsp;&nbsp;if (end - start + 1) &gt; 2:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;step = (end - start + 1) // 3
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stoogeSort(data, start, end - step)
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stoogeSort(data, start + step, end)
@@ -464,7 +468,7 @@
                                 from random import shuffle
                                 def isSorted(data):
                                 &nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(data) - 1):
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data[i] > data[i + 1]:
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data[i] &gt; data[i + 1]:
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return False
                                 &nbsp;&nbsp;&nbsp;&nbsp;return True<br />
                                 def bogoSort(data):
