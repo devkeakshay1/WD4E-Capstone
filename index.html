@@ -318,6 +318,9 @@
                                 then merge sort the left sublist and merge sort the right sublist and merge them
                                 recursively.  And the whole list is then sorted.<br />
                                 <br />
+                                Merge sort is stable and can be applied when random access to the data is not allowed,
+                                like sorting a linked list.  But it also requires more memory when sorting.<br />
+                                <br />
                                 The python implementation of merge sort is:
                             </p>
                             <pre class="prettyprint">
@@ -350,6 +353,17 @@
                             <hr>
                             <h3>Quick Sort</h3>
                             <hr class="star-primary">
+                            <p class="leftaligned">
+                                Quick sort adopts the divide and conquer in another way.  It recursively partition the
+                                list by selecting a pivot and swap the list so that all elements smaller than the pivot
+                                is on the left side and elements greater than the pivot is on the right.  So on and so
+                                for, and the list is sorted.<br />
+                                <br />
+                                The quick sort is not stable, but it can be implemented such that only constant extra
+                                memory is needed.<br />
+                                <br />
+                                The python implementation of quick sort is:
+                            </p>
                             <pre class="prettyprint">
                                 def quickSort(data, start = 0, end = None):
                                 &nbsp;&nbsp;&nbsp;&nbsp;if data is None or data == []:
