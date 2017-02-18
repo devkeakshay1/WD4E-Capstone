@@ -517,3 +517,8 @@ pre {
   width: 70%;
   margin: auto;
 }
+
+img-carousel {
+  width: 100px;
+  height: 100px;
+}
